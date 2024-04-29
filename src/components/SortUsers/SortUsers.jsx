@@ -10,7 +10,7 @@ import {
 const SortUsers = memo(({ handleSetSortType }) => {
   return (
     <Select onValueChange={handleSetSortType}>
-      <SelectTrigger className="w-[200px]">
+      <SelectTrigger className="w-[250px]">
         <SelectValue placeholder="Сортировка по ID" />
       </SelectTrigger>
       <SelectContent>

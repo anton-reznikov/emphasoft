@@ -75,14 +75,14 @@
   }
 }
 
+@layer components {
+  .userList__card {
+    @apply w-full min-h-fit flex flex-row items-center  justify-between before:content-[attr(data-label)] before:block before:text-black before:w-1/2 before:min-h-fit before:font-bold text-right before:text-left border-b-2;
+  }
+}
+
 .wrapper {
   min-height: 100vh;
   display: grid;
   grid-template-rows: 100px 1fr 100px;
-}
-
-.users-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 300px));
-  justify-content: center;
 }

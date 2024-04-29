@@ -63,22 +63,22 @@ const UsersPage = () => {
   return (
     <div className="container">
       <section className="py-8 flex items-center flex-col gap-8 md:gap-10">
-        <div className="flex flex-col md:flex-row gap-5 items-center">
-          <h2 className="text-center text-xl md:text-3xl">
-            Список пользователей
-          </h2>
+        <h2 className="text-center text-2xl md:text-4xl">
+          Список пользователей
+        </h2>
+        <div className="w-full flex flex-col items-center md:flex-row md:justify-between gap-6 md:gap-14">
           <Link to="create">
             <Button className="hover:bg-slate-300 hover:text-black bg-slate-800 flex gap-2">
               <PlusIcon /> Создать
             </Button>
           </Link>
-        </div>
-        <div className="flex flex-col md:flex-row gap-6 md:gap-14">
-          <FilterUsers
-            value={inputValue}
-            handleSetInputValue={handleSetInputValue}
-          />
-          <SortUsers handleSetSortType={handleSetSortType} />
+          <div className="flex flex-col md:flex-row gap-4 md:gap-8">
+            <FilterUsers
+              value={inputValue}
+              handleSetInputValue={handleSetInputValue}
+            />
+            <SortUsers handleSetSortType={handleSetSortType} />
+          </div>
         </div>
         {isLoading ? (
           <Spinner />
