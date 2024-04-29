@@ -1,5 +1,4 @@
 import UsersList from "../../components/UsersList/UsersList";
-import ProtectedRoute from "../../components/shared/ProtectedRoute/ProtectedRoute";
 
 import { Button } from "../../components/ui/button";
 import { Link } from "react-router-dom";
@@ -91,8 +90,4 @@ const UsersPage = () => {
   );
 };
 
-export default () => (
-  <ProtectedRoute>
-    <UsersPage />
-  </ProtectedRoute>
-);
+export default UsersPage;

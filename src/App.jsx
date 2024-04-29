@@ -5,6 +5,7 @@ import Footer from "./components/shared/Footer/Footer";
 import LoginPage from "./pages/public/LoginPage";
 import HomePage from "./pages/public/HomePage";
 import UsersPage from "./pages/protected/UsersPage";
+import ProtectedRoute from "./components/shared/ProtectedRoute/ProtectedRoute";
 
 import EditUserPage from "./pages/protected/EditUserPage";
 import CreateUserPage from "./pages/protected/CreateUserPage";
@@ -28,10 +29,31 @@ function App() {
           <Route index element={<HomePage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="users" element={<Outlet />}>
-            <Route index element={<UsersPage />} />
-            <Route path=":userId/edit" element={<EditUserPage />} />
+            <Route
+              index
+              element={
+                <ProtectedRoute>
+                  <UsersPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path=":userId/edit"
+              element={
+                <ProtectedRoute>
+                  <EditUserPage />
+                </ProtectedRoute>
+              }
+            />
 
-            <Route path="create" element={<CreateUserPage />} />
+            <Route
+              path="create"
+              element={
+                <ProtectedRoute>
+                  <CreateUserPage />
+                </ProtectedRoute>
+              }
+            />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Route>

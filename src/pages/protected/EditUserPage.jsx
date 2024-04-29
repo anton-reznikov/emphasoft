@@ -1,6 +1,5 @@
 import { useGetUserQuery } from "../../api/usersApi";
 import UserForm from "../../components/UserForm/UserForm";
-import ProtectedRoute from "../../components/shared/ProtectedRoute/ProtectedRoute";
 
 import Spinner from "../../components/ui/spinner";
 import { useParams } from "react-router-dom";
@@ -24,8 +23,4 @@ const EditUserPage = () => {
   );
 };
 
-export default () => (
-  <ProtectedRoute>
-    <EditUserPage />
-  </ProtectedRoute>
-);
+export default EditUserPage;

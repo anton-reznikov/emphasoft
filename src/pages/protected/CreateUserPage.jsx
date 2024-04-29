@@ -1,5 +1,4 @@
 import UserForm from "../../components/UserForm/UserForm";
-import ProtectedRoute from "../../components/shared/ProtectedRoute/ProtectedRoute";
 
 const CreateUserPage = () => {
   return (
@@ -14,8 +13,4 @@ const CreateUserPage = () => {
   );
 };
 
-export default () => (
-  <ProtectedRoute>
-    <CreateUserPage />
-  </ProtectedRoute>
-);
+export default CreateUserPage;
