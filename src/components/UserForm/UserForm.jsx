@@ -60,28 +60,32 @@ const UserForm = ({ type, user = {} }) => {
   });
 
   const onSubmit = async (values) => {
-    setIsLoginExist(false);
-    if (type === "edit") {
-      await updateUser({ id: user.id, ...values })
-        .unwrap()
-        .then(() => navigate("/users"))
-        .catch((error) => {
-          if (error.data.username && error.data.username.length > 0) {
-            setIsLoginExist(true);
-          } else {
-            console.log(error);
-          }
-        });
-    }
-    if (type === "create") {
-      await createUser(values)
-        .unwrap()
-        .then(() => navigate("/users"))
-        .catch((error) => {
-          if (error.data.username.length > 0) {
-            setIsLoginExist(true);
-          }
-        });
+    try {
+      setIsLoginExist(false);
+      if (type === "edit") {
+        await updateUser({ id: user.id, ...values })
+          .unwrap()
+          .then(() => navigate("/users"))
+          .catch((error) => {
+            if (error.data.username && error.data.username.length > 0) {
+              setIsLoginExist(true);
+            } else {
+              console.log(error);
+            }
+          });
+      }
+      if (type === "create") {
+        await createUser(values)
+          .unwrap()
+          .then(() => navigate("/users"))
+          .catch((error) => {
+            if (error.data.username && error.data.username.length > 0) {
+              setIsLoginExist(true);
+            }
+          });
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 
