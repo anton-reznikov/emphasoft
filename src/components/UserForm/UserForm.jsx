@@ -66,8 +66,10 @@ const UserForm = ({ type, user = {} }) => {
         .unwrap()
         .then(() => navigate("/users"))
         .catch((error) => {
-          if (error.data.username.length > 0) {
+          if (error.data.username && error.data.username.length > 0) {
             setIsLoginExist(true);
+          } else {
+            console.log(error);
           }
         });
     }
